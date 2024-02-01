@@ -56,7 +56,7 @@ void ft_map_H(char *path, t_data *data)
     }
     if (height == 0)
     {
-        printf("ERROR IN THE MAP!");
+        printf("MAP IS EMPTY!");
         exit(1);
     }
     close(fd);
@@ -72,7 +72,7 @@ void ft_map_W(char *path, t_data *data)
 	fd = open(path,O_RDONLY);
 	if(fd < 0)
 	{
-		printf("THE MAP PATH IS INVALID!");
+		printf("THE MAP PATH IS INVALID!1");
 		exit(1);
 	}
 	line = get_next_line(fd);
@@ -81,7 +81,7 @@ void ft_map_W(char *path, t_data *data)
 	{
 		if(s != (ft_strlenl2(line)))
 		{
-			printf("THE MAP PATH IS INVALID!");
+			printf("INVALID MAP");
 			exit(1);
 		}
 		line = get_next_line(fd);
@@ -96,8 +96,8 @@ void ft_fill_map(char *path, t_data *data)
     int i;
 
     i = 0;
-    ft_map_W(path, data);
     ft_map_H(path, data);
+    ft_map_W(path, data);
 	fd = open(path, O_RDONLY);
     if (fd < 0 || data->map_H == 0)
         exit(1);
@@ -178,6 +178,8 @@ int main(int ac, char *av[])
 		return (1);
 	}
     ft_fill_map(av[1], &data);
+	// map_comp(&data);
+	validate_map(&data);
     ft_draw_map(&data);
 
 
@@ -188,5 +190,6 @@ int main(int ac, char *av[])
     // {
     //     printf("%s", data.map[i]);
     //     i++;
-    // }    
+    // }
+    system("leaks ");
 }
