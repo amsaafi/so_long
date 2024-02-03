@@ -14,7 +14,7 @@ typedef struct s_data
     void    *mlx;
     void    *mlx_win;
     char    **map;
-    char    **map2;
+    char    **map_flood;
     int     map_W;
     int     map_H;
     int     zero;
@@ -38,6 +38,13 @@ typedef struct s_data
 void check_map_surrounded_by_walls(t_data *data);
 void validate_map(t_data *data);
 void free_map(char **map);
+void ft_map_W(char *path, t_data *data);
+void ft_map_H(char *path, t_data *data);
+void	*ft_memset(void *ptr, int value, size_t num);
+size_t	ft_strlenl2(const char *str);
+void ft_fill_map(char *path, t_data *data);
+void	ft_putstr(char *str);
+
 // void count_collectibles(t_data *data);
 // void count_player(t_data *data);
 // void count_exit(t_data *data);

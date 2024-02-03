@@ -1,116 +1,7 @@
 #include "so_long.h"
+#define MAX_ALLOCATIONS 10000
+#define WARN(msg, line) (printf("Warning %d: %s\n", line, msg))
 
-size_t	ft_strlenl(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-size_t	ft_strlenl2(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0' && str[i] != '\n')
-		i++;
-	return (i);
-}
-
-void	*ft_memset(void *ptr, int value, size_t num)
-{
-	unsigned char	*byte_ptr;
-	size_t			i;
-
-	byte_ptr = (unsigned char *)ptr;
-	i = 0;
-	while (i < num)
-	{
-		byte_ptr[i] = (unsigned char)value;
-		i++;
-	}
-	return (ptr);
-}
-
-void ft_map_H(char *path, t_data *data)
-{
-    char    *line;
-    int fd;
-    int height;
-
-    fd = open(path, O_RDONLY);
-    height = 0;
-    if (fd < 0)
-    {
-        printf("THE MAP PATH IS INVALID!");
-        exit(1);
-    }
-    line = get_next_line(fd);
-    while(line)
-    {
-        height++;
-        free(line);
-        line = get_next_line(fd);
-    }
-    if (height == 0)
-    {
-        printf("MAP IS EMPTY!");
-        exit(1);
-    }
-    close(fd);
-    data->map_H = height;
-}
-void ft_map_W(char *path, t_data *data)
-{
-	int fd;
-	int i;
-	size_t s;
-	char *line;
-	i = 0;
-	fd = open(path,O_RDONLY);
-	if(fd < 0)
-	{
-		printf("THE MAP PATH IS INVALID!1");
-		exit(1);
-	}
-	line = get_next_line(fd);
-	s = ft_strlenl2(line);
-	while (line)
-	{
-		if(s != (ft_strlenl2(line)))
-		{
-			printf("INVALID MAP");
-			exit(1);
-		}
-		line = get_next_line(fd);
-	}
-	data->map_W = s;
-	close(fd);
-}
-void ft_fill_map(char *path, t_data *data)
-{
-    char    *line;
-    int fd;
-    int i;
-
-    i = 0;
-    ft_map_H(path, data);
-    ft_map_W(path, data);
-	fd = open(path, O_RDONLY);
-    if (fd < 0 || data->map_H == 0)
-        exit(1);
-    data->map = (char **)malloc((data->map_H) * sizeof(char **));
-    //protection
-    line = get_next_line(fd);
-    while (i < data->map_H && line)
-    {
-        data->map[i] = line;
-        line = get_next_line(fd);
-        i++;
-    }
-}
 
 void ft_draw_map(t_data *data)
 {
@@ -130,7 +21,7 @@ void ft_draw_map(t_data *data)
 			&data->img_W, &data->img_H);
 	data->wall_xpm = mlx_xpm_file_to_image(data->mlx, "./textures/wall.xpm",
 			&data->img_W, &data->img_H);
-	// data->enemy_xpm = mlx_xpm_file_to_image(data->mlx, "./textures/enemy.xpm",
+	// data->enemy_xpm = mlx_xpm_file_to_image(data->mlx, "./textures/fire.xpm",
 	// 		&data->img_W, &data->img_H);
     x = 0;
     y = 0;
@@ -141,7 +32,7 @@ void ft_draw_map(t_data *data)
         {
             if(data->map[y][x] == '1')
                 mlx_put_image_to_window(data->mlx, data->mlx_win, data->wall_xpm, x*50, y*50);
-            x++;
+
             if (data->map[y][x] == '0')
                 mlx_put_image_to_window(data->mlx, data->mlx_win, data->floor_xpm, x*50, y*50);
             if(data->map[y][x] == 'E')
@@ -159,6 +50,7 @@ void ft_draw_map(t_data *data)
                 mlx_put_image_to_window(data->mlx, data->mlx_win, data->floor_xpm, x*50, y*50);
                 mlx_put_image_to_window(data->mlx, data->mlx_win, data->heart_xpm, x*50, y*50);
             }
+            x++;
         }
         y++;
     }
@@ -171,25 +63,13 @@ int main(int ac, char *av[])
 {
     t_data data;
 
-    ft_memset(&data, 0, sizeof(data));
 	if (ac != 2)
 	{
-		printf("ONLY NEED 2 VALID PARAM!");
+		ft_putstr("ONLY NEED 2 VALID PARAM!");
 		return (1);
 	}
+    ft_memset(&data, 0, sizeof(data));
     ft_fill_map(av[1], &data);
-	// map_comp(&data);
 	validate_map(&data);
     ft_draw_map(&data);
-
-
-    // printf("map width: %d\n", data.map_W);
-    // printf("map height: %d\n", data.map_H);
-    
-    // while(i < data.map_H)
-    // {
-    //     printf("%s", data.map[i]);
-    //     i++;
-    // }
-    system("leaks ");
 }
