@@ -10,7 +10,7 @@ void ft_map_H(char *path, t_data *data)
     height = 0;
     if (fd < 0)
     {
-        ft_putstr("THE MAP PATH IS INVALID!");
+        ft_putstr("THE MAP PATH IS INVALID!\n");
         exit(1);
     }
     line = get_next_line(fd);
@@ -22,12 +22,13 @@ void ft_map_H(char *path, t_data *data)
     }
     if (height == 0)
     {
-        ft_putstr("MAP IS EMPTY!");
+        ft_putstr("MAP IS EMPTY!\n");
         exit(1);
     }
     close(fd);
     data->map_H = height;
 }
+
 void ft_map_W(char *path, t_data *data)
 {
 	int fd;
@@ -38,7 +39,7 @@ void ft_map_W(char *path, t_data *data)
 	fd = open(path,O_RDONLY);
 	if(fd < 0)
 	{
-		ft_putstr("THE MAP PATH IS INVALID!1");
+		ft_putstr("THE MAP PATH IS INVALID!\n");
 		exit(1);
 	}
 	line = get_next_line(fd);
@@ -47,14 +48,16 @@ void ft_map_W(char *path, t_data *data)
 	{
 		if(s != (ft_strlenl2(line)))
 		{
-			ft_putstr("INVALID MAP");
+			ft_putstr("INVALID MAP\n");
 			exit(1);
 		}
+        free(line);
 		line = get_next_line(fd);
 	}
 	data->map_W = s;
 	close(fd);
 }
+
 void ft_fill_map(char *path, t_data *data)
 {
     char    *line;
@@ -68,7 +71,8 @@ void ft_fill_map(char *path, t_data *data)
     if (fd < 0 || data->map_H == 0)
         exit(1);
     data->map = (char **)malloc((data->map_H) * sizeof(char **));
-    //protection
+    if(!data->map)
+        exit(1);
     line = get_next_line(fd);
     while (i < data->map_H && line)
     {
@@ -76,4 +80,32 @@ void ft_fill_map(char *path, t_data *data)
         line = get_next_line(fd);
         i++;
     }
+}
+
+void	check_path_format(char *path)
+{
+	char	*v;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	v = ".ber";
+	if (ft_strchr(path, '.') - 1 == ft_strchr(path, '/'))
+	{
+		ft_putstr("INVALID MAP FORMAT\n");
+		exit(1);
+	}
+	while (path[i] != '.')
+		i++;
+	while (path[i])
+	{
+		if (path[i] != v[j])
+		{
+			ft_putstr("INVALID MAP FORMAT\n");
+			exit(1);
+		}
+		j++;
+		i++;
+	}
 }

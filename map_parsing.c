@@ -27,7 +27,6 @@ void check_map_surrounded_by_walls(t_data *data)
     while (i < map_W) {
         if (data->map[0][i] != '1' || data->map[map_H - 1][i] != '1') {
             ft_putstr("Error: Map is not surrounded by walls\n");
-            free(data->map);
             exit(1);
         }
         i++;
@@ -35,7 +34,6 @@ void check_map_surrounded_by_walls(t_data *data)
     while (j < map_H) {
         if (data->map[j][0] != '1' || data->map[j][map_W - 1] != '1') {
             ft_putstr("Error: Map is not surrounded by walls\n");
-            free(data->map);
             exit(1);
         }
         j++;

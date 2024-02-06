@@ -44,12 +44,16 @@ void	*ft_memset(void *ptr, int value, size_t num);
 size_t	ft_strlenl2(const char *str);
 void ft_fill_map(char *path, t_data *data);
 void	ft_putstr(char *str);
+char	*ft_strchr(const char *s, int c);
+void    check_path_format(char *path);
+void    ft_draw_map(t_data *data);
+void    ft_draw_elements(t_data *data);
+void    ft_draw_walls_floor(t_data *data);
+void    ft_draw_exit(t_data *data);
+void    ft_draw_player(t_data *data);
+void    ft_draw_collec(t_data *data);
+void    ft_draw_killer(t_data *data);
 
-// void count_collectibles(t_data *data);
-// void count_player(t_data *data);
-// void count_exit(t_data *data);
-// void count_floors(t_data *data);
-// void count_walls(t_data *data);
-// void map_comp(t_data *data);
+
 
 #endif
