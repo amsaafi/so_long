@@ -41,6 +41,7 @@ void free_map(char **map);
 void ft_map_W(char *path, t_data *data);
 void ft_map_H(char *path, t_data *data);
 void	*ft_memset(void *ptr, int value, size_t num);
+char	*ft_strdup(const char *s);
 size_t	ft_strlenl2(const char *str);
 void ft_fill_map(char *path, t_data *data);
 void	ft_putstr(char *str);
@@ -53,7 +54,8 @@ void    ft_draw_exit(t_data *data);
 void    ft_draw_player(t_data *data);
 void    ft_draw_collec(t_data *data);
 void    ft_draw_killer(t_data *data);
-
-
+void    ft_flood_fill(t_data *data);
+void ft_get_player_demensions(t_data *data);
+void ft_is_Playable(t_data *data);
 
 #endif

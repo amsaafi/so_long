@@ -4,12 +4,14 @@ SRC = so_long.c \
 		gnl/get_next_line.c \
 		gnl/get_next_line_utils.c \
 		map_parsing.c \
+		map_parsing2.c \
 		draw.c \
 		utils/ft_memset.c \
 		utils/ft_strclen.c \
 		utils/ft_putstr.c \
 		map_filling.c \
 		draw_elements.c \
+		flood_exit.c \
 
 OBJ = $(SRC:.c=.o)
 

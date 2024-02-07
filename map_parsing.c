@@ -86,4 +86,5 @@ void validate_map(t_data *data)
 		ft_putstr("Error: Map should contain one player, one exit, and at least one collectible\n");
 		exit(1);
 	}
+    ft_is_Playable(data);
 }
