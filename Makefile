@@ -12,6 +12,7 @@ SRC = so_long.c \
 		map_filling.c \
 		draw_elements.c \
 		flood_exit.c \
+		flood_colec.c \
 
 OBJ = $(SRC:.c=.o)
 

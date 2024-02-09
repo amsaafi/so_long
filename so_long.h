@@ -15,6 +15,7 @@ typedef struct s_data
     void    *mlx_win;
     char    **map;
     char    **map_flood;
+    char    **map_flood_colec;
     int     map_W;
     int     map_H;
     int     zero;
@@ -35,15 +36,15 @@ typedef struct s_data
 
 }   t_data;
 
-void check_map_surrounded_by_walls(t_data *data);
-void validate_map(t_data *data);
-void free_map(char **map);
-void ft_map_W(char *path, t_data *data);
-void ft_map_H(char *path, t_data *data);
+void    check_map_surrounded_by_walls(t_data *data);
+void    validate_map(t_data *data);
+void    free_map(char **map);
+void    ft_map_W(char *path, t_data *data);
+void    ft_map_H(char *path, t_data *data);
 void	*ft_memset(void *ptr, int value, size_t num);
 char	*ft_strdup(const char *s);
-size_t	ft_strlenl2(const char *str);
-void ft_fill_map(char *path, t_data *data);
+size_t  ft_strlenl2(const char *str);
+void    ft_fill_map(char *path, t_data *data);
 void	ft_putstr(char *str);
 char	*ft_strchr(const char *s, int c);
 void    check_path_format(char *path);
@@ -55,7 +56,13 @@ void    ft_draw_player(t_data *data);
 void    ft_draw_collec(t_data *data);
 void    ft_draw_killer(t_data *data);
 void    ft_flood_fill(t_data *data);
-void ft_get_player_demensions(t_data *data);
-void ft_is_Playable(t_data *data);
+void    ft_flood_fill_colec(t_data *data);
+void    ft_get_player_demensions(t_data *data);
+void    ft_is_Playable(t_data *data);
+void    ft_dup_map(t_data *data);
+void    ft_dup_map_colec(t_data *data);
+void    ft_flood_fill_colec(t_data *data);
+void    ft_Not_game(t_data *data);
+
 
 #endif

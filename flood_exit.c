@@ -6,7 +6,7 @@
 /*   By: samsaafi <samsaafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 22:06:00 by samsaafi          #+#    #+#             */
-/*   Updated: 2024/02/07 23:04:36 by samsaafi         ###   ########.fr       */
+/*   Updated: 2024/02/09 23:54:19 by samsaafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void ft_dup_map(t_data *data)
     }
 }
 
-void ft_fill(t_data *data, int x, int y)
+void    ft_fill(t_data *data, int x, int y)
 {
     if (x < 0 || x >= data->map_H || y < 0 || y >= data->map_W)
         return;
@@ -45,7 +45,7 @@ void ft_fill(t_data *data, int x, int y)
     }
 }
 
-void ft_get_player_demensions(t_data *data)
+void    ft_get_player_demensions(t_data *data)
 {
     int x;
     int y;

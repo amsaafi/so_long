@@ -39,7 +39,7 @@ void check_map_surrounded_by_walls(t_data *data)
         j++;
     }
 }
-void	check_map_charachters(t_data *data)
+void	ft_count_charachters(t_data *data)
 {
 	int	i;
 	int	j;
@@ -62,24 +62,40 @@ void	check_map_charachters(t_data *data)
 	}
 }
 
+void	check_map_charachters(t_data *data)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	while (x < data->map_H)
+	{
+		y = 0;
+		while (y < data->map_W)
+		{
+			if (data->map[x][y] != 'P' && data->map[x][y] != 'C' && data->map[x][y] != 'E' && data->map[x][y] != 'F'
+            && data->map[x][y] != '0' && data->map[x][y] != '1')//WARNING<---------
+            {
+                ft_putstr("MAP CHARACHTERS INVALID!\n");
+                system("leaks so_long");
+                exit(1);
+            }
+			y++;
+		}
+		x++;
+	}
+}
+
 
 
 void validate_map(t_data *data)
 {
-    int i;
-    int cols;
-    int ex;
-    int player;
-
-    i = 0;
-    cols = 0;
-    ex = 0;
-    player = 0;
     if (data->map == NULL || data->map[0] == NULL) {
         ft_putstr("Error: Empty map\n");
         exit(1);
     }
     check_map_charachters(data);
+    ft_count_charachters(data);
     check_map_surrounded_by_walls(data);
     if (data->player != 1 || data->collectives < 1 || data->exit != 1)
 	{
