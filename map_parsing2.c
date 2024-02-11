@@ -6,7 +6,7 @@
 /*   By: samsaafi <samsaafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 22:09:06 by samsaafi          #+#    #+#             */
-/*   Updated: 2024/02/10 00:11:00 by samsaafi         ###   ########.fr       */
+/*   Updated: 2024/02/11 19:45:38 by samsaafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void    ft_is_Playable(t_data *data)
         }
         x++;
     }
-    free_map(data->map_flood);
     ft_Not_game(data);
 }
 
@@ -52,11 +51,16 @@ void    ft_Not_game(t_data *data)
             if (data->map_flood_colec[x][y] == 'C')
             {
                 ft_putstr("YOU CAN NOT PLAY THIS GAME.\n");
+                int i = 0;
+                while (data->map_flood_colec[i])
+                {
+                    printf("%s", data->map_flood_colec[i]);
+                    i++;
+                }
                 exit(1);
             }
             y++;
         }
         x++;
     }
-    free_map(data->map_flood_colec);
 }

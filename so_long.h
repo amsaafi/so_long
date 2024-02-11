@@ -41,7 +41,7 @@ typedef struct s_data
 
 void    check_map_surrounded_by_walls(t_data *data);
 void    validate_map(t_data *data);
-void    free_map(char **map);
+void    free_map(t_data *data);
 void    ft_map_W(char *path, t_data *data);
 void    ft_map_H(char *path, t_data *data);
 void	*ft_memset(void *ptr, int value, size_t num);
@@ -67,6 +67,9 @@ void    ft_dup_map_colec(t_data *data);
 void    ft_flood_fill_colec(t_data *data);
 void    ft_Not_game(t_data *data);
 int ft_key_hook(int keycode, t_data *data);
+void    ft_esc(t_data *data);
+void    ft_check_exit(t_data *data);
+void    ft_check_fire(t_data *data);
 
 
 

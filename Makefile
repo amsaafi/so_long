@@ -14,6 +14,7 @@ SRC = so_long.c \
 		flood_exit.c \
 		flood_colec.c \
 		play.c \
+		play_utils.c \
 
 OBJ = $(SRC:.c=.o)
 

@@ -1,16 +1,17 @@
 #include "so_long.h"
 
-void free_map(char **map)
+void free_map(t_data *data)
 {
-    if (map == NULL)
-        return;
+    int i;
 
-    int i = 0;
-    while (map[i] != NULL) {
-        free(map[i]);
+    i = 0;
+    while (i < data->map_H) 
+    {
+        ft_putstr("map free00\n");
+        free(data->map_flood[i]);
         i++;
     }
-    free(map);
+    free(data->map_flood);
 }
 
 void check_map_surrounded_by_walls(t_data *data)
@@ -102,4 +103,6 @@ void validate_map(t_data *data)
 		exit(1);
 	}
     ft_is_Playable(data);
+    free_map(data);
+    system ("leaks so_long");
 }

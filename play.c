@@ -6,7 +6,7 @@
 /*   By: samsaafi <samsaafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 01:43:06 by samsaafi          #+#    #+#             */
-/*   Updated: 2024/02/11 14:07:09 by samsaafi         ###   ########.fr       */
+/*   Updated: 2024/02/11 16:31:38 by samsaafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void    ft_right(t_data *data)
         ft_draw_elements(data);
         data->collectives--;
     }
+    ft_check_exit(data);
 }
 
 void    ft_left(t_data *data)
@@ -59,6 +60,7 @@ void    ft_left(t_data *data)
         ft_draw_elements(data);
         data->collectives--;
     }
+    ft_check_exit(data);
 }
 
 void    ft_up(t_data *data)
@@ -82,6 +84,7 @@ void    ft_up(t_data *data)
         ft_draw_elements(data);
         data->collectives--;
     }
+    ft_check_exit(data);
 }
 
 void    ft_down(t_data *data)
@@ -105,29 +108,20 @@ void    ft_down(t_data *data)
         ft_draw_elements(data);
         data->collectives--;
     }
+    ft_check_exit(data);
 }
 
 int ft_key_hook(int keycode, t_data *data)
 {
     if (keycode == 124)
-    {
         ft_right(data);
-        return (0);
-    }
     else if (keycode == 123)
-    {
         ft_left(data);
-        return (0);
-    }
     else if (keycode == 126)
-    {
         ft_up(data);
-        return (0);
-    }
     else if (keycode == 125)
-    {
         ft_down(data);
-        return (0);
-    }
+    else if (keycode == 53)
+        ft_esc(data);
     return (0);
 }
