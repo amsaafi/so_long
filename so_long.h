@@ -27,7 +27,10 @@ typedef struct s_data
     int     img_H;
     int     player_X;
     int     player_Y;
+    int     moves;
+    int     flag;
     void    *player_xpm;
+    void    *player_left_xpm;
     void    *heart_xpm;
     void    *fire_xpm;
     void    *exit_xpm;
@@ -63,6 +66,8 @@ void    ft_dup_map(t_data *data);
 void    ft_dup_map_colec(t_data *data);
 void    ft_flood_fill_colec(t_data *data);
 void    ft_Not_game(t_data *data);
+int ft_key_hook(int keycode, t_data *data);
+
 
 
 #endif

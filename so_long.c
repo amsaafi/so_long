@@ -14,20 +14,7 @@ int main(int ac, char *av[])
     ft_fill_map(av[1], &data);
 	validate_map(&data);
     ft_flood_fill(&data);
-    // int i = 0;
-    // while (i < data.map_H)
-    // {
-    //     printf("%s\n", data.map_flood[i]);
-    //     i++;
-    // }
-    // ft_putstr("===================map======================\n");
-    // i = 0;
-    // while (i < data.map_H)
-    // {
-    //     printf("%s\n", data.map[i]);
-    //     i++;
-    // }
-    // system("leaks so_long");
     ft_draw_map(&data);
+    mlx_key_hook(data.mlx_win,ft_key_hook, &data);
     mlx_loop(data.mlx);
 }

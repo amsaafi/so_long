@@ -13,6 +13,7 @@ SRC = so_long.c \
 		draw_elements.c \
 		flood_exit.c \
 		flood_colec.c \
+		play.c \
 
 OBJ = $(SRC:.c=.o)
 

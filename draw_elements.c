@@ -53,17 +53,24 @@ void    ft_draw_player(t_data *data)
     int y;
 
     y = 0;
-    if (!data->player_xpm)
+    if (!data->player_xpm || !data->player_left_xpm)
+    {
         exit(1);
+    }
     while(y < data->map_H)
     {
         x = 0;
         while(x < data->map_W)
         {
-            if (data->map[y][x] == 'P')
+            if (data->map[y][x] == 'P' && data->flag == 1)
             {
                 mlx_put_image_to_window(data->mlx, data->mlx_win, data->floor_xpm, x*50, y*50);
                 mlx_put_image_to_window(data->mlx, data->mlx_win, data->player_xpm, x*50, y*50);
+            }
+            else if (data->map[y][x] == 'P' && data->flag == -1)
+            {
+                mlx_put_image_to_window(data->mlx, data->mlx_win, data->floor_xpm, x*50, y*50);
+                mlx_put_image_to_window(data->mlx, data->mlx_win, data->player_left_xpm, x*50, y*50);
             }
             x++;
         }

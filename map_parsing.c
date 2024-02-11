@@ -77,7 +77,6 @@ void	check_map_charachters(t_data *data)
             && data->map[x][y] != '0' && data->map[x][y] != '1')//WARNING<---------
             {
                 ft_putstr("MAP CHARACHTERS INVALID!\n");
-                system("leaks so_long");
                 exit(1);
             }
 			y++;
