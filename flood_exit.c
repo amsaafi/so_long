@@ -6,7 +6,7 @@
 /*   By: samsaafi <samsaafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 22:06:00 by samsaafi          #+#    #+#             */
-/*   Updated: 2024/02/11 19:55:26 by samsaafi         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:11:10 by samsaafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,15 @@ void    ft_get_player_demensions(t_data *data)
         while (y < data->map_W)
         {
             if (data->map[x][y] == 'P')
-                break;
+            {
+                data->player_X = x;
+                data->player_Y = y;
+            }
             y++;
         }
-        if (data->map[x][y] == 'P')
-            break;
         x++;
     }
-    data->player_X = x;
-    data->player_Y = y;
+   
 }
 
 void    ft_flood_fill(t_data *data)

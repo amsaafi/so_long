@@ -27,6 +27,8 @@ typedef struct s_data
     int     img_H;
     int     player_X;
     int     player_Y;
+    int     exit_X;
+    int     exit_Y;
     int     moves;
     int     flag;
     void    *player_xpm;
@@ -67,9 +69,9 @@ void    ft_dup_map_colec(t_data *data);
 void    ft_flood_fill_colec(t_data *data);
 void    ft_Not_game(t_data *data);
 int ft_key_hook(int keycode, t_data *data);
-void    ft_esc(t_data *data);
+int ft_esc(t_data *data);
 void    ft_check_exit(t_data *data);
-void    ft_check_fire(t_data *data);
+void    ft_get_exit_demensions(t_data *data);
 
 
 

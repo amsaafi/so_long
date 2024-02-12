@@ -1,17 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: samsaafi <samsaafi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/12 21:52:52 by samsaafi          #+#    #+#             */
+/*   Updated: 2024/02/12 21:52:53 by samsaafi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
-
-void ft_free_map(char **map)
-{
-    if (map == NULL)
-        return;
-
-    int i = 0;
-    while (map[i] != NULL) {
-        free(map[i]);
-        i++;
-    }
-    free(map);
-}
 
 int main(int ac, char *av[])
 {
@@ -26,9 +25,9 @@ int main(int ac, char *av[])
     check_path_format(av[1]);
     ft_fill_map(av[1], &data);
 	validate_map(&data);
-    // ft_flood_fill(&data);
     ft_draw_map(&data);
     mlx_key_hook(data.mlx_win,ft_key_hook, &data);
+    mlx_hook(data.mlx_win, 17, 0, ft_esc, &data);
     ft_putstr("*************** main.c leaks ****************\n");
     system("leaks so_long");
     mlx_loop(data.mlx);
