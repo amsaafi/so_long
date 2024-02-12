@@ -6,7 +6,7 @@
 /*   By: samsaafi <samsaafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 21:52:52 by samsaafi          #+#    #+#             */
-/*   Updated: 2024/02/12 21:52:53 by samsaafi         ###   ########.fr       */
+/*   Updated: 2024/02/12 23:12:28 by samsaafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int ac, char *av[])
 
 	if (ac != 2)
 	{
-		ft_putstr("ONLY NEED 2 VALID PARAM!\n");
+		ft_printf("\033[91mONLY NEED 2 VALID PARAM!\033[91m\n");
 		exit(1);
 	}
     ft_memset(&data, 0, sizeof(data));
@@ -28,7 +28,7 @@ int main(int ac, char *av[])
     ft_draw_map(&data);
     mlx_key_hook(data.mlx_win,ft_key_hook, &data);
     mlx_hook(data.mlx_win, 17, 0, ft_esc, &data);
-    ft_putstr("*************** main.c leaks ****************\n");
+    ft_printf("*************** main.c leaks ****************\n");
     system("leaks so_long");
     mlx_loop(data.mlx);
 }

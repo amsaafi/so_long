@@ -6,7 +6,7 @@
 /*   By: samsaafi <samsaafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 14:08:51 by samsaafi          #+#    #+#             */
-/*   Updated: 2024/02/12 22:47:19 by samsaafi         ###   ########.fr       */
+/*   Updated: 2024/02/12 23:38:25 by samsaafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,16 @@ void    ft_get_exit_demensions(t_data *data)
 }
 
 
+
 void    ft_check_exit(t_data *data)
 {
+    printf("Move: %d\n",data->moves);
     if ((data->player_X == data->exit_X && data->player_Y == data->exit_Y) && data->collectives == 0)
     {
         data->map[data->player_X][data->player_Y] = '0';
-        printf("\nafter\n\nplayer X : %d / player Y : %d \n", data->player_X, data->player_Y);
         data->moves++;
-        ft_putstr("HOLLLLLLLLEY YOU WIN :)\n");
+        printf("Move: %d\n",data->moves);
+        ft_printf("\033[92mHOLLLLLLLLEY YOU WIN :)\n\033[92m");
         ft_esc(data);
     }
 }

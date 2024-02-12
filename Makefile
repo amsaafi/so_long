@@ -8,13 +8,19 @@ SRC = so_long.c \
 		draw.c \
 		utils/ft_memset.c \
 		utils/ft_strclen.c \
-		utils/ft_putstr.c \
 		map_filling.c \
 		draw_elements.c \
 		flood_exit.c \
 		flood_colec.c \
 		play.c \
 		play_utils.c \
+		ft_printf/ft_printf.c \
+		ft_printf/src/ft_putchar.c \
+		ft_printf/src/ft_putstr.c \
+		ft_printf/src/ft_putnbr.c \
+		ft_printf/src/ft_puthex.c \
+		ft_printf/src/ft_puthex_upper.c \
+		ft_printf/src/ft_putunbr.c \
 
 OBJ = $(SRC:.c=.o)
 

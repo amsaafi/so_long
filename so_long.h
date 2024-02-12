@@ -8,6 +8,7 @@
 # include <string.h>
 # include <unistd.h>
 # include "gnl/get_next_line.h"
+# include "ft_printf/ft_printf.h"
 
 typedef struct s_data
 {
@@ -50,7 +51,6 @@ void	*ft_memset(void *ptr, int value, size_t num);
 char	*ft_strdup(const char *s);
 size_t  ft_strlenl2(const char *str);
 void    ft_fill_map(char *path, t_data *data);
-void	ft_putstr(char *str);
 char	*ft_strchr(const char *s, int c);
 void    check_path_format(char *path);
 void    ft_draw_map(t_data *data);

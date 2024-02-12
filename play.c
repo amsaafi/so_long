@@ -6,7 +6,7 @@
 /*   By: samsaafi <samsaafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 01:43:06 by samsaafi          #+#    #+#             */
-/*   Updated: 2024/02/12 22:45:02 by samsaafi         ###   ########.fr       */
+/*   Updated: 2024/02/12 23:24:34 by samsaafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,7 @@ void    ft_right(t_data *data)
         data->collectives--;
     }
     else if (data->map[data->player_X][data->player_Y + 1] == 'E' && data->collectives == 0)
-    {
         data->player_Y++;
-    }
     ft_check_exit(data);
 }
 
@@ -65,9 +63,7 @@ void    ft_left(t_data *data)
         data->collectives--;
     }
     else if (data->map[data->player_X][data->player_Y - 1] == 'E' && data->collectives == 0)
-    {
         data->player_Y--;
-    }
     ft_check_exit(data);
 }
 
@@ -93,9 +89,7 @@ void    ft_up(t_data *data)
         data->collectives--;
     }
     else if (data->map[data->player_X - 1][data->player_Y] == 'E' && data->collectives == 0)
-    {
         data->player_X--;
-    }
     ft_check_exit(data);
 }
 
@@ -121,9 +115,7 @@ void    ft_down(t_data *data)
         data->collectives--;
     }
     else if (data->map[data->player_X + 1][data->player_Y] == 'E' && data->collectives == 0)
-    {
         data->player_X++;
-    }
     ft_check_exit(data);
 }
 

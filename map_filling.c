@@ -10,7 +10,7 @@ void ft_map_H(char *path, t_data *data)
     height = 0;
     if (fd < 0)
     {
-        ft_putstr("THE MAP PATH IS INVALID!\n");
+        ft_printf("\033[91mTHE MAP PATH IS INVALID!\033[91m\n");
         exit(1);
     }
     line = get_next_line(fd);
@@ -22,7 +22,7 @@ void ft_map_H(char *path, t_data *data)
     }
     if (height == 0)
     {
-        ft_putstr("MAP IS EMPTY!\n");
+        ft_printf("\033[91mMAP IS EMPTY!\033[91m\n");
         exit(1);
     }
     close(fd);
@@ -39,7 +39,7 @@ void ft_map_W(char *path, t_data *data)
 	fd = open(path,O_RDONLY);
 	if(fd < 0)
 	{
-		ft_putstr("THE MAP PATH IS INVALID!\n");
+		ft_printf("\033[91mTHE MAP PATH IS INVALID!\033[91m\n");
 		exit(1);
 	}
 	line = get_next_line(fd);
@@ -48,7 +48,7 @@ void ft_map_W(char *path, t_data *data)
 	{
 		if(s != (ft_strlenl2(line)))
 		{
-			ft_putstr("INVALID MAP\n");
+			ft_printf("\033[91mINVALID MAP\033[91m\n");
 			exit(1);
 		}
         free(line);
@@ -93,7 +93,7 @@ void	check_path_format(char *path)
 	v = ".ber";
 	if (ft_strchr(path, '.') - 1 == ft_strchr(path, '/'))
 	{
-		ft_putstr("INVALID MAP FORMAT\n");
+		ft_printf("\033[91mINVALID MAP FORMAT\033[91m\n");
 		exit(1);
 	}
 	while (path[i] != '.')
@@ -102,7 +102,7 @@ void	check_path_format(char *path)
 	{
 		if (path[i] != v[j])
 		{
-			ft_putstr("INVALID MAP FORMAT\n");
+			ft_printf("\033[91mINVALID MAP FORMAT\033[91m\n");
 			exit(1);
 		}
 		j++;
