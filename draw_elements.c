@@ -84,7 +84,7 @@ void    ft_draw_collec(t_data *data)
     int y;
 
     y = 0;
-    if (!data->heart_xpm)
+    if (!data->colec_xpm)
         exit(1);
     while(y < data->map_H)
     {
@@ -94,7 +94,7 @@ void    ft_draw_collec(t_data *data)
             if (data->map[y][x] == 'C')
             {
                 mlx_put_image_to_window(data->mlx, data->mlx_win, data->floor_xpm, x*50, y*50);
-                mlx_put_image_to_window(data->mlx, data->mlx_win, data->heart_xpm, x*50, y*50);
+                mlx_put_image_to_window(data->mlx, data->mlx_win, data->colec_xpm, x*50, y*50);
             }
             x++;
         }

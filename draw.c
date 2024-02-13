@@ -6,7 +6,7 @@
 /*   By: samsaafi <samsaafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 22:50:34 by samsaafi          #+#    #+#             */
-/*   Updated: 2024/02/11 13:39:01 by samsaafi         ###   ########.fr       */
+/*   Updated: 2024/02/13 12:17:25 by samsaafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void    ft_draw_map(t_data *data)
 			&data->img_W, &data->img_H);
 	data->player_xpm = mlx_xpm_file_to_image(data->mlx, "./textures/player.xpm",
 			&data->img_W, &data->img_H);
-	data->heart_xpm = mlx_xpm_file_to_image(data->mlx, "./textures/heart.xpm",
+	data->colec_xpm = mlx_xpm_file_to_image(data->mlx, "./textures/colec.xpm",
 			&data->img_W, &data->img_H);
 	data->floor_xpm = mlx_xpm_file_to_image(data->mlx, "./textures/floor.xpm",
 			&data->img_W, &data->img_H);

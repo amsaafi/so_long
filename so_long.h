@@ -34,7 +34,7 @@ typedef struct s_data
     int     flag;
     void    *player_xpm;
     void    *player_left_xpm;
-    void    *heart_xpm;
+    void    *colec_xpm;
     void    *fire_xpm;
     void    *exit_xpm;
     void    *wall_xpm;
