@@ -51,7 +51,7 @@ void	*ft_memset(void *ptr, int value, size_t num);
 char	*ft_strdup(const char *s);
 size_t  ft_strlenl2(const char *str);
 void    ft_fill_map(char *path, t_data *data);
-char	*ft_strchr(const char *s, int c);
+char	*ft_strrchr(const char *str, int c);
 void    check_path_format(char *path);
 void    ft_draw_map(t_data *data);
 void    ft_draw_elements(t_data *data);
@@ -72,6 +72,7 @@ int ft_key_hook(int keycode, t_data *data);
 int ft_esc(t_data *data);
 void    ft_check_exit(t_data *data);
 void    ft_get_exit_demensions(t_data *data);
+// void    ft_check_fire(t_data *data);
 
 
 

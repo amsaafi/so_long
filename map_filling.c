@@ -91,18 +91,19 @@ void	check_path_format(char *path)
 	i = 0;
 	j = 0;
 	v = ".ber";
-	if (ft_strchr(path, '.') - 1 == ft_strchr(path, '/'))
+	if (ft_strrchr(path, '.') - 1 == ft_strrchr(path, '/'))
 	{
-		ft_printf("\033[91mINVALID MAP FORMAT\033[91m\n");
+		ft_printf("\033[91mINVALID MAP FORMAT1\033[91m\n");
 		exit(1);
 	}
+	i = ft_strlen(path);
 	while (path[i] != '.')
-		i++;
+		i--;
 	while (path[i])
 	{
 		if (path[i] != v[j])
 		{
-			ft_printf("\033[91mINVALID MAP FORMAT\033[91m\n");
+			ft_printf("\033[91mINVALID MAP FORMAT2\033[91m\n");
 			exit(1);
 		}
 		j++;

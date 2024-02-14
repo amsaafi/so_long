@@ -8,6 +8,7 @@ SRC = so_long.c \
 		draw.c \
 		utils/ft_memset.c \
 		utils/ft_strclen.c \
+		utils/ft_strrchr.c \
 		map_filling.c \
 		draw_elements.c \
 		flood_exit.c \
@@ -26,6 +27,8 @@ OBJ = $(SRC:.c=.o)
 
 %.o: %.c
 	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(OBJ)  -lmlx -framework OpenGL -framework AppKit -o $(NAME)
