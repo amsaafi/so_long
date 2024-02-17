@@ -1,127 +1,136 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw_elements.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: samsaafi <samsaafi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/17 15:23:30 by samsaafi          #+#    #+#             */
+/*   Updated: 2024/02/17 15:29:55 by samsaafi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-void    ft_draw_walls_floor(t_data *data)
+void	ft_draw_walls_floor(t_data *data)
 {
-    int x;
-    int y;
+	int	x;
+	int	y;
 
-    y = 0;
-    if (!data->wall_xpm || !data->floor_xpm)
-        exit(1);
-    while(y < data->map_H)
-    {
-        x = 0;
-        while(x < data->map_W)
-        {
-            if (data->map[y][x] == '1')
-                mlx_put_image_to_window(data->mlx, data->mlx_win, data->wall_xpm, x*50, y*50);
-            if (data->map[y][x] == '0')
-                mlx_put_image_to_window(data->mlx, data->mlx_win, data->floor_xpm, x*50, y*50);
-            x++;
-        }
-        y++;
-    }
+	y = 0;
+	if (!data->wall_xpm || !data->floor_xpm)
+		exit(1);
+	while (y < data->map_h)
+	{
+		x = 0;
+		while (x < data->map_w)
+		{
+			if (data->map[y][x] == '1')
+				mlx_put_image_to_window(data->mlx, data->mlx_win,
+					data->wall_xpm, x * 50, y * 50);
+			if (data->map[y][x] == '0')
+				mlx_put_image_to_window(data->mlx, data->mlx_win,
+					data->floor_xpm, x * 50, y * 50);
+			x++;
+		}
+		y++;
+	}
 }
 
-void    ft_draw_exit(t_data *data)
+void	ft_draw_exit(t_data *data)
 {
-    int x;
-    int y;
+	int	x;
+	int	y;
 
-    y = 0;
-    if (!data->exit_xpm)
-        exit(1);
-    while(y < data->map_H)
-    {
-        x = 0;
-        while(x < data->map_W)
-        {
-            if (data->map[y][x] == 'E')
-            {
-                mlx_put_image_to_window(data->mlx, data->mlx_win, data->floor_xpm, x*50, y*50);
-                mlx_put_image_to_window(data->mlx, data->mlx_win, data->exit_xpm, x*50, y*50);
-            }
-            x++;
-        }
-        y++;
-    }
+	y = 0;
+	if (!data->exit_xpm)
+		exit(1);
+	while (y < data->map_h)
+	{
+		x = 0;
+		while (x < data->map_w)
+		{
+			if (data->map[y][x] == 'E')
+			{
+				mlx_put_image_to_window(data->mlx, data->mlx_win,
+					data->floor_xpm, x * 50, y * 50);
+				mlx_put_image_to_window(data->mlx, data->mlx_win,
+					data->exit_xpm, x * 50, y * 50);
+			}
+			x++;
+		}
+		y++;
+	}
 }
 
-void    ft_draw_player(t_data *data)
+void	ft_draw_player(t_data *data)
 {
-    int x;
-    int y;
+	int	x;
+	int	y;
 
-    y = 0;
-    if (!data->player_xpm || !data->player_left_xpm)
-    {
-        exit(1);
-    }
-    while(y < data->map_H)
-    {
-        x = 0;
-        while(x < data->map_W)
-        {
-            if (data->map[y][x] == 'P' && data->flag == 1)
-            {
-                mlx_put_image_to_window(data->mlx, data->mlx_win, data->floor_xpm, x*50, y*50);
-                mlx_put_image_to_window(data->mlx, data->mlx_win, data->player_xpm, x*50, y*50);
-            }
-            else if (data->map[y][x] == 'P' && data->flag == -1)
-            {
-                mlx_put_image_to_window(data->mlx, data->mlx_win, data->floor_xpm, x*50, y*50);
-                mlx_put_image_to_window(data->mlx, data->mlx_win, data->player_left_xpm, x*50, y*50);
-            }
-            x++;
-        }
-        y++;
-    }
+	y = 0;
+	if (!data->player_xpm || !data->player_left_xpm)
+		exit(1);
+	while (y < data->map_h)
+	{
+		x = 0;
+		while (x < data->map_w)
+		{
+			ft_player(data, x, y);
+			x++;
+		}
+		y++;
+	}
 }
 
-void    ft_draw_collec(t_data *data)
+void	ft_draw_collec(t_data *data)
 {
-    int x;
-    int y;
+	int	x;
+	int	y;
 
-    y = 0;
-    if (!data->colec_xpm)
-        exit(1);
-    while(y < data->map_H)
-    {
-        x = 0;
-        while(x < data->map_W)
-        {
-            if (data->map[y][x] == 'C')
-            {
-                mlx_put_image_to_window(data->mlx, data->mlx_win, data->floor_xpm, x*50, y*50);
-                mlx_put_image_to_window(data->mlx, data->mlx_win, data->colec_xpm, x*50, y*50);
-            }
-            x++;
-        }
-        y++;
-    }
+	y = 0;
+	if (!data->colec_xpm)
+		exit(1);
+	while (y < data->map_h)
+	{
+		x = 0;
+		while (x < data->map_w)
+		{
+			if (data->map[y][x] == 'C')
+			{
+				mlx_put_image_to_window(data->mlx, data->mlx_win,
+					data->floor_xpm, x * 50, y * 50);
+				mlx_put_image_to_window(data->mlx, data->mlx_win,
+					data->colec_xpm, x * 50, y * 50);
+			}
+			x++;
+		}
+		y++;
+	}
 }
 
-void    ft_draw_killer(t_data *data)
+void	ft_draw_killer(t_data *data)
 {
-    int x;
-    int y;
+	int	x;
+	int	y;
 
-    y = 0;
-    if (!data->fire_xpm)
-        exit(1);
-    while(y < data->map_H)
-    {
-        x = 0;
-        while(x < data->map_W)
-        {
-            if (data->map[y][x] == 'F')
-            {
-                mlx_put_image_to_window(data->mlx, data->mlx_win, data->floor_xpm, x*50, y*50);
-                mlx_put_image_to_window(data->mlx, data->mlx_win, data->fire_xpm, x*50, y*50);
-            }
-            x++;
-        }
-        y++;
-    }
+	y = 0;
+	if (!data->fire_xpm)
+		exit(1);
+	while (y < data->map_h)
+	{
+		x = 0;
+		while (x < data->map_w)
+		{
+			if (data->map[y][x] == 'F')
+			{
+				mlx_put_image_to_window(data->mlx, data->mlx_win,
+					data->floor_xpm, x * 50, y * 50);
+				mlx_put_image_to_window(data->mlx, data->mlx_win,
+					data->fire_xpm, x * 50, y * 50);
+			}
+			x++;
+		}
+		y++;
+	}
 }
