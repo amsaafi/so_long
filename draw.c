@@ -6,7 +6,7 @@
 /*   By: samsaafi <samsaafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 22:50:34 by samsaafi          #+#    #+#             */
-/*   Updated: 2024/02/17 15:30:06 by samsaafi         ###   ########.fr       */
+/*   Updated: 2024/02/17 17:03:29 by samsaafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	ft_draw_elements(t_data *data)
 	ft_draw_exit(data);
 	ft_draw_player(data);
 	ft_draw_collec(data);
-	ft_draw_killer(data);
 }
 
 void	ft_draw_map(t_data *data)
@@ -39,8 +38,6 @@ void	ft_draw_map(t_data *data)
 			&data->img_w, &data->img_h);
 	data->player_left_xpm = mlx_xpm_file_to_image(data->mlx,
 			"./textures/player-left.xpm", &data->img_w, &data->img_h);
-	data->fire_xpm = mlx_xpm_file_to_image(data->mlx, "./textures/fire.xpm",
-			&data->img_w, &data->img_h);
 	ft_draw_elements(data);
 }
 

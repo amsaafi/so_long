@@ -6,7 +6,7 @@
 /*   By: samsaafi <samsaafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:23:30 by samsaafi          #+#    #+#             */
-/*   Updated: 2024/02/17 15:29:55 by samsaafi         ###   ########.fr       */
+/*   Updated: 2024/02/17 17:02:34 by samsaafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,32 +102,6 @@ void	ft_draw_collec(t_data *data)
 					data->floor_xpm, x * 50, y * 50);
 				mlx_put_image_to_window(data->mlx, data->mlx_win,
 					data->colec_xpm, x * 50, y * 50);
-			}
-			x++;
-		}
-		y++;
-	}
-}
-
-void	ft_draw_killer(t_data *data)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	if (!data->fire_xpm)
-		exit(1);
-	while (y < data->map_h)
-	{
-		x = 0;
-		while (x < data->map_w)
-		{
-			if (data->map[y][x] == 'F')
-			{
-				mlx_put_image_to_window(data->mlx, data->mlx_win,
-					data->floor_xpm, x * 50, y * 50);
-				mlx_put_image_to_window(data->mlx, data->mlx_win,
-					data->fire_xpm, x * 50, y * 50);
 			}
 			x++;
 		}

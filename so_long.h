@@ -6,7 +6,7 @@
 /*   By: samsaafi <samsaafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 14:59:44 by samsaafi          #+#    #+#             */
-/*   Updated: 2024/02/17 17:00:30 by samsaafi         ###   ########.fr       */
+/*   Updated: 2024/02/17 17:02:42 by samsaafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ typedef struct s_data
 	void	*player_xpm;
 	void	*player_left_xpm;
 	void	*colec_xpm;
-	void	*fire_xpm;
 	void	*exit_xpm;
 	void	*wall_xpm;
 	void	*floor_xpm;
@@ -71,7 +70,6 @@ void		ft_draw_walls_floor(t_data *data);
 void		ft_draw_exit(t_data *data);
 void		ft_draw_player(t_data *data);
 void		ft_draw_collec(t_data *data);
-void		ft_draw_killer(t_data *data);
 void		ft_flood_fill(t_data *data);
 void		ft_flood_fill_colec(t_data *data);
 void		ft_get_player_demensions(t_data *data);
