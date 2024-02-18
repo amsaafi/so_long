@@ -6,7 +6,7 @@
 /*   By: samsaafi <samsaafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:33:21 by samsaafi          #+#    #+#             */
-/*   Updated: 2024/02/17 15:37:26 by samsaafi         ###   ########.fr       */
+/*   Updated: 2024/02/18 12:37:59 by samsaafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	ft_fill_map(char *path, t_data *data)
 	ft_map_h(path, data);
 	ft_map_w(path, data);
 	fd = open(path, O_RDONLY);
-	if (fd < 0 || data->map_h == 0)
+	if (fd < 0)
 		exit(1);
 	data->map = (char **)malloc((data->map_h) * sizeof(char **));
 	if (!data->map)

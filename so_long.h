@@ -6,7 +6,7 @@
 /*   By: samsaafi <samsaafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 14:59:44 by samsaafi          #+#    #+#             */
-/*   Updated: 2024/02/17 17:02:42 by samsaafi         ###   ########.fr       */
+/*   Updated: 2024/02/18 12:49:53 by samsaafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 # include "gnl/get_next_line.h"
 # include <fcntl.h>
 # include <mlx.h>
-# include <stdio.h>
 # include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
 
 typedef struct s_data
